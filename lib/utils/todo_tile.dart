@@ -33,27 +33,30 @@ class ToDoTile extends StatelessWidget {
             // spacing: 10,
           ),
         ]),
-        child: Container(
-          padding: EdgeInsets.only(top: 8, bottom: 8, left: 10, right: 10),
-          child: Row(
-            children: [
-              Checkbox(
-                value: taskCompleted,
-                onChanged: onChanged,
-                activeColor: Colors.black,
-              ),
-              Text(taskName,
-                  style: TextStyle(
-                    color: taskCompleted ? Colors.grey[400] : Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 18,
-                    fontStyle:
-                        taskCompleted ? FontStyle.italic : FontStyle.normal,
-                  )),
-            ],
+        child: GestureDetector(
+          onTap: () => onChanged?.call(taskCompleted),
+          child: Container(
+            padding: EdgeInsets.only(top: 8, bottom: 8, left: 10, right: 10),
+            child: Row(
+              children: [
+                Checkbox(
+                  value: taskCompleted,
+                  onChanged: onChanged,
+                  activeColor: Colors.teal[900],
+                ),
+                Text(taskName,
+                    style: TextStyle(
+                      color: taskCompleted ? Colors.teal[900] : Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                      fontStyle:
+                          taskCompleted ? FontStyle.italic : FontStyle.normal,
+                    )),
+              ],
+            ),
+            decoration: BoxDecoration(
+                color: Colors.teal, borderRadius: BorderRadius.circular(12)),
           ),
-          decoration: BoxDecoration(
-              color: Colors.teal, borderRadius: BorderRadius.circular(12)),
         ),
       ),
     );

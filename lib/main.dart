@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.teal,
           primaryColor: Colors.teal,
-          primaryColorLight: Colors.teal[200],
+          primaryColorLight: Colors.teal[300],
           primaryColorDark: Colors.teal[800],
           textTheme: GoogleFonts.poppinsTextTheme()),
     );

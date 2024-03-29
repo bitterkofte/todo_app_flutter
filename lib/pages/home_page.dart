@@ -81,10 +81,19 @@ class _HomePageState extends State<HomePage> {
     db.updateDataBase();
   }
 
+  // delete all tasks
+  void deleteAllTasks(int index) {
+    setState(() {
+      db.toDoList = [];
+    });
+    db.updateDataBase();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         centerTitle: true,
         title: const Text(
           "ToDo Flutter",
@@ -92,6 +101,28 @@ class _HomePageState extends State<HomePage> {
               color: Colors.white, fontWeight: FontWeight.w600, fontSize: 24),
         ),
         backgroundColor: Colors.teal,
+      ),
+      drawer: Drawer(
+        backgroundColor: Theme.of(context).primaryColorDark,
+        child: Column(
+          children: [
+            DrawerHeader(
+                child: Text("Todo Flutter",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700))),
+            ElevatedButton.icon(
+              onPressed: () => deleteAllTasks,
+              icon: Icon(
+                Icons.delete,
+                size: 24.0,
+              ),
+              label: Text('Delete all tasks',
+                  style: TextStyle(fontWeight: FontWeight.w700)), // <-- Text
+            ),
+          ],
+        ),
       ),
       backgroundColor: Colors.teal[300],
       body: ListView.builder(

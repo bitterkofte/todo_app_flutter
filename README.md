@@ -1,6 +1,16 @@
 # todo_app
 
-A new Flutter project.
+A todo app where the data is automaticlly saved to local storage.
+
+## How It Looks
+
+<img src="./public/First.png" alt="screenshot1" width="300" /> 
+<img src="./public/Second.png" alt="screenshot2" width="300"/> 
+<img src="./public/Third.png" alt="screenshot3" width="300"/> 
+
+## Download the APK
+
+[APK](build\app\outputs\flutter-apk\app-release.apk)
 
 ## Getting Started
 

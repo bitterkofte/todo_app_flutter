@@ -14,11 +14,11 @@ class ToDoDataBase {
     // ];
     toDoList = [
       {
-        "task": "first",
+        "task": "Walk the dog",
         "isCompleted": false,
       },
       {
-        "task": "second",
+        "task": "Publish the project",
         "isCompleted": true,
       },
     ];
