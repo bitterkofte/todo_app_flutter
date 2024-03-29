@@ -10,7 +10,7 @@ A todo app where the data is automaticlly saved to local storage.
 
 ## Download the APK
 
-[APK](build\app\outputs\flutter-apk\app-release.apk)
+[APK](public/app-release.apk)
 
 ## Getting Started
 
