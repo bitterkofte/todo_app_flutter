@@ -65,6 +65,9 @@ class _HomePageState extends State<HomePage> {
 
   // save new task
   void saveNewTask() {
+    if (_controller.text == "") {
+      return;
+    }
     setState(() {
       db.toDoList.add({"task": _controller.text, "isCompleted": false});
       _controller.clear();
@@ -82,7 +85,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // delete all tasks
-  void deleteAllTasks(int index) {
+  void deleteAllTasks() {
     setState(() {
       db.toDoList = [];
     });
@@ -113,13 +116,12 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 20,
                         fontWeight: FontWeight.w700))),
             ElevatedButton.icon(
-              onPressed: () => deleteAllTasks,
-              icon: Icon(
-                Icons.delete,
-                size: 24.0,
-              ),
+              onPressed: deleteAllTasks,
+              icon: Icon(Icons.delete, size: 24.0, color: Colors.red),
               label: Text('Delete all tasks',
-                  style: TextStyle(fontWeight: FontWeight.w700)), // <-- Text
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: Colors.red)), // <-- Text
             ),
           ],
         ),
@@ -131,7 +133,7 @@ class _HomePageState extends State<HomePage> {
           taskName: db.toDoList[index]["task"],
           taskCompleted: db.toDoList[index]["isCompleted"],
           onChanged: (value) => checkboxChanged(value, index),
-          deleteHandler: (p0) => deleteTask,
+          deleteHandler: (context) => deleteTask(index),
         ),
       ),
       floatingActionButton: FloatingActionButton(
